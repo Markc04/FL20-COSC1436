@@ -25,7 +25,7 @@ void menu6Dominguez();
 void menu22Turcios();
 void menu21Tourkakis();
 void menu8Fuentes();
-
+void menu3Caldwell();
 // ***************************************************************
 // END OF FUNCTION PROTOTYPE AREA
 // ***************************************************************
@@ -62,6 +62,7 @@ int main()
             case 2:                 // Attar - call to function goes here
                 break;
             case 3:                 // Caldwell - call to function goes here
+                  menu3Caldwell();
                 break;
             case 4:                 // Chanthara - call to function goes here
                 break;
@@ -109,7 +110,7 @@ int main()
                 break;
             case 24:                 // Smiley - call to function goes here
                 menu24Smiley(11);
-                break;        
+                break;
             }
         }
     } while (choice != EXIT);
@@ -156,21 +157,50 @@ void showMenu()
     cout << "24. Smiley" << endl;
     cout << endl;
 }
+// *****************************************************************************************
+// MENU ID:          3
+// FUNCTION:         menu3Caldwell
+// DESCRIPTION:      This program while give you 5 lucky numbers
+// OUTPUT EXAMPLE:  When you push enter you will be given 5 lucky numbers
+//                   28
+//                   68
+//                   37
+//                   17
+//                   38
+// *****************************************************************************************
+void menu3Caldwell()
+    {
 
-// *****************************************************************************************
-// Function Definitions Section
-// *****************************************************************************************
-// Add your function below.  
-//    Things to check:
-//          Function prototype added at the top
-//          Available "includes" that could be used
-//          Function called from showMenu()
-//          All return types MUST be void.
-//  
-// FunctionName:  menuXXYYYYYYYYYYYY(your parameters)
-//                     where XX is your menu number and
-//                           YY is your last name with no spaces (camel case)           
-// *****************************************************************************************
+	cout << "Welcome to Mark Caldwell Program!\n"
+          << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+           << "Today we will be givin you your lucky numbers.\n"
+           << "when you push enter you will be given 6 lucky numbers.\n";
+
+	system("pause");
+
+	srand(time(0));
+
+	vector<int> v(5, 0);
+
+	int a;
+	for (int i = 0; i < v.size(); i++ ) {
+		a = rand() % 69;
+		for (int j = 0; j < v.size(); j++) {
+			if (a == v[j]) {
+				a = rand() % 69;
+				j = -1; // This should not be a zero!!!!
+			}
+		}
+		v[i] = a;
+	}
+
+	for (int &bob : v) {
+		cout << bob << endl;
+	}
+
+	cin.get();
+
+}
 
 void menu21Tourkakis()
 {
@@ -312,7 +342,7 @@ void menu6Dominguez()
                     << "      /::::::::::::::::/        \n"
                     << "     /::::========::::/         \n"
                     << "    `~~~~~~~~~~~~~~~~`          \n";
-            break;   
+            break;
 
         case 3:     // Call to plain face computer.
                 cout  << "      .--------------------.    \n"
@@ -330,7 +360,7 @@ void menu6Dominguez()
                     << "    `~~~~~~~~~~~~~~~~`          \n";
             break;
 
-        case 4:     // Call to bad face computer.                  
+        case 4:     // Call to bad face computer.
                 cout  << "      .--------------------.    \n"
                     << "      |.-````````````````-.|    \n"
                     << "      ||     v      v     ||    \n"
